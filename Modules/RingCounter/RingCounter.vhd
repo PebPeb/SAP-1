@@ -29,9 +29,11 @@ begin
 
 	
 	-- Logic
-	process (CLK) begin
+	process (CLK, CLR) begin
 		T_next <= T_next;
-		if (CLK'event and not CLK = '1') then
+		if (CLR = '1') then
+			T_next <= B"000000";
+		elsif (CLK'event and not CLK = '1') then
 			T_next(0) <= T_next(5) or not (T_next(5) or T_next(4) or T_next(3) or T_next(2) or T_next(1) or T_next(0));
 			T_next(1) <= T_next(0);
 			T_next(2) <= T_next(1);
@@ -42,7 +44,7 @@ begin
 	end process;
 	
 	-- Output Logic
-	T <= B"000000" when CLR = '1' else T_next;
+	T <= T_next;
 	
 	
 end RingCounter_arch;

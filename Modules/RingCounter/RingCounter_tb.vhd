@@ -33,7 +33,12 @@ begin
 		CLR <= '1';
 		wait for 12 ns;
 		CLR <= '0';
-		wait for 1000 ns;
+		wait for 275 ns;
+		CLR <= '1';
+		wait for 17 ns;
+		CLR <= '0';
+		wait for 100 ns;
+		assert false report "simulation finished successfully" severity failure;
 	end process;	
 	
 	
