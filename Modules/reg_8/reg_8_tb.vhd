@@ -1,20 +1,20 @@
 ----------------------------------------------
--- RegisterB_tb								--
+-- reg_8_tb								--
 ----------------------------------------------
 
 
 library ieee;
 use IEEE.STD_LOGIC_1164.all;
 
-entity RegisterB_tb is
+entity reg_8_tb is
 end;
 
-architecture tb of RegisterB_tb is	
-	component RegisterB
+architecture tb of reg_8_tb is	
+	component reg_8
 		port (
-			CLK, LB:		in STD_lOGIC;						-- Clock and LB
-			Bin:			in STD_LOGIC_VECTOR(7 downto 0);	-- T state of the program
-			Bout:			out STD_LOGIC_VECTOR(7 downto 0)	-- T state of the program
+			CLK, WE:		in STD_lOGIC;						-- Clock and LB
+			reg_in:			in STD_LOGIC_VECTOR(7 downto 0);	-- T state of the program
+			reg_out:			out STD_LOGIC_VECTOR(7 downto 0)	-- T state of the program
 		);
 	end component;
 
@@ -22,7 +22,7 @@ architecture tb of RegisterB_tb is
 	signal Bin, Bout: 		STD_LOGIC_VECTOR(7 downto 0);
 begin
 
-	UUT : RegisterB port map(CLK, LB, Bin, Bout); 
+	UUT : reg_8 port map(CLK, not LB, Bin, Bout); 
 
 	process begin
 		CLK <= '1';
