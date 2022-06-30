@@ -29,7 +29,7 @@ begin
 	-- Logic
 	process (CLK, LB) begin
 		B <= B;
-		if (CLK'event and CLK = '1' and not LB) then
+		if (CLK'event and CLK = '1' and LB = '0') then
 			B <= Bin;
 		end if;
 	end process;
