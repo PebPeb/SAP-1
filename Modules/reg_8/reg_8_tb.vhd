@@ -20,9 +20,12 @@ architecture tb of reg_8_tb is
 
 	signal CLK, LB:			STD_LOGIC;
 	signal Bin, Bout: 		STD_LOGIC_VECTOR(7 downto 0);
+	
+	signal not_LB:			STD_LOGIC;
 begin
 
-	UUT : reg_8 port map(CLK, not LB, Bin, Bout); 
+	UUT : reg_8 port map(CLK, not_LB, Bin, Bout); 
+	not_LB <= not LB;
 
 	process begin
 		CLK <= '1';

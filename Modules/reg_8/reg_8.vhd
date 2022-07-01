@@ -18,7 +18,7 @@ entity reg_8 is
 	port (
 		CLK, WE:		in STD_lOGIC;						-- Clock and LB
 		reg_in:			in STD_LOGIC_VECTOR(7 downto 0);	-- T state of the program
-		reg_out:			out STD_LOGIC_VECTOR(7 downto 0)	-- T state of the program
+		reg_out:		out STD_LOGIC_VECTOR(7 downto 0)	-- T state of the program
 	);
 end;
 
